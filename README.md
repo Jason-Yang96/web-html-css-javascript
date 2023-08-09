@@ -2,13 +2,13 @@
 # What To Do
 Learning Javascript Cloning and Customizing Chrome Extension; Momentum
 ## Javascript 
-### Usage
+### 1. Usage
 
 #### 파일 실행 특징
 js 파일은 body 태그 가장 아래에 업로드. script 태그로 감싼다.
 파일을 위에서 아래로 읽는다. n번째 줄에서 오류가 발생하면 n-1까지 실행하고 그 뒤로는 오류 코드만 띄운 뒤 실행하지 않는다. 
 
-#### data type
+#### 1) Data type
 - int
 - float
 - str
@@ -18,10 +18,10 @@ js 파일은 body 태그 가장 아래에 업로드. script 태그로 감싼다.
 - undefined(다른 언어에는 없는 듯 하다)
     - 변수에 값을 지정하지 않은 상태이다. 컴퓨터 메모리(공간)에는 존재하지만, 값이 없는 것.
 
-#### 브라우저 내 콘솔 출력
+#### 2) Console.log
 console.log(data | operation)
 
-#### 변수 설정
+#### 3) Variable
 효율성을 위해서 변수를 사용 
 const를 기본, 바꿀 변수는 let(원래는 var을 사용했었음)
 
@@ -37,12 +37,12 @@ var 변수 이름 = 변수 값;
 
 변수 이름을 정하는 규칙
 - 단어 사이에 띄어쓰기가 필요하다면 대문자를 사용한다. like this veryLongVariableName(camelCase)
-#### 배열
+#### 4) Array
 const 변수 이름 = [데이터 | 변수]
 배열에 데이터 추가
 - 변수 이름.push(추가할 데이터) 함수 사용
 
-#### object
+#### 5) Object
 특성이 있는 값을 넣고 싶을 때. 
 const 변수 이름 = {property : value, property2 : value......}
 property 자체의 값을 수정은 가능
@@ -52,13 +52,13 @@ const는 object 자체의 변경은 불가능하지만, 그 안에 있는 proper
 새로운 property를 만들기
 변수이름.새로운property이름 = 새로운 값 
 
-#### fucntion
+#### 6) Fucntion
 func은 계속 사용할 수 있는 코드 조각
 function functionName(parameter, parameter2, parameter3) {
     console.log.................; <!-- 세미콜론 잊지 말고 넣어줘야 한다 -->
 }
 
-#### function in object
+#### 7) Function in object
 
 ```javascript
 const player = {
@@ -68,13 +68,13 @@ const player = {
     }
 }
 ```
-#### function and return
+#### 8) Function and return
 function을 통해 작업 실행 이후 특정 값을 받아 다른 작업을 하고 싶을 때 return으로 결과를 반환하면 된다. 
 return 이후는 function이 종료된다.
 반환된 값은 변수로 넣어줘도 된다. 
 변수를 브라우저에서 작동시키면? 결과값이 나오게 된다. 
 
-#### conditionals
+#### 9) Conditionals
 
 ## Momentum(chrome extension) cloning and customizing
 
