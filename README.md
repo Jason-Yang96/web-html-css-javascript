@@ -4,7 +4,7 @@ Learning Javascript Cloning and Customizing Chrome Extension; Momentum
 ## Javascript 
 ### 1. Usage
 
-#### 파일 실행 특징
+#### 0) 파일 실행 특징
 js 파일은 body 태그 가장 아래에 업로드. script 태그로 감싼다.
 파일을 위에서 아래로 읽는다. n번째 줄에서 오류가 발생하면 n-1까지 실행하고 그 뒤로는 오류 코드만 띄운 뒤 실행하지 않는다. 
 
@@ -74,7 +74,34 @@ return 이후는 function이 종료된다.
 반환된 값은 변수로 넣어줘도 된다. 
 변수를 브라우저에서 작동시키면? 결과값이 나오게 된다. 
 
-#### 9) Conditionals
+#### 9) conditionals
+
+```javascript
+console.log(typeof age) //특정 변수의 타입을 확인하는 방법1
+console.log(typeof(age)) //특정 변수의 타입을 확인하는 방법2
+prompt() // 창을 띄워서 무엇인가를 입력하도록 한다. very old old old way to ask something from user.
+isNaN() // 숫자가 아닌지를 bool 값 반환으로 알려준다
+parseInt() //str을 숫자로 바꿔준다
+```
+
+```javascript
+const age = parseInt(prompt("how old are you?")); 
+
+if (isNaN(age) === true){
+    alert("put a number, not a string");
+}else if (age <= 19) {
+    console.log("get away");
+}else {
+    console.log("you can stay")
+}
+/* 궁금증. 여기서 else는 else if의 else일까? 아니면 if의 else일까? 
+답변. else 문은 else if가 false일때 실행된다. 그러므로 else if의 else이다. */
+```
+&& 는 and와 같은 의미
+|| 는 or과 같은 의미
+= 는 할당
+=== 같은지 여부
+!== 다른지 여부
 
 ## Momentum(chrome extension) cloning and customizing
 
