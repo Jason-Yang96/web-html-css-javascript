@@ -11,15 +11,19 @@
         }
 
         li::after {
-            content: ' |';
+            content: '|';
+        }
+        
+        li:first-of-type::before {
+            content: '시작 '
         }
 
         li:last-of-type::after {
-            content: ' ';
+            content: '';
         }
-
-        li:first-of-type::before {
-            content: '시작 '
+        ul {
+            display: flex;
+            align-items: center;
         }
     </style>
 </head>

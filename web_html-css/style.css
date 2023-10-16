@@ -1,0 +1,42 @@
+.button_a {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 80px;
+    margin-right: 10px;
+    margin-left: 30px;
+    padding: 20px 16px; 
+    transition: opacity 2s, background-color 2s ease-in;
+}
+.button_a:hover {
+    opacity: 0.7;
+}
+.button_a:active {
+    background-color: black;
+}
+.parent p:first-of-type {
+    color: pink;
+}
+
+.container {
+    background-color: blue;
+    transition: background-color 0.3s ease-in-out;
+}
+.container:hover {
+    background-color: green;
+}
+
+.text-input:focus {
+    background-color: lightblue;
+}
+.container-2>div {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    float: left;
+}
+.container-2>div:nth-child(2n+1) {
+    background-color: blue;
+}
