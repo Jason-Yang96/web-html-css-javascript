@@ -2,7 +2,7 @@
     border: 6px solid lightgray;
     display: flex;
     width: 600px;
-    height: 800px;
+    height: 400px;
 }
 
 .flex-item {
@@ -20,7 +20,7 @@
 
 .item-2 {
     background-color: lightyellow;
-    order: -1;
+    order: 1;
 }
 
 .item-3 {

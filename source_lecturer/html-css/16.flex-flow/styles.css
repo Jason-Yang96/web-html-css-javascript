@@ -1,7 +1,7 @@
 .container {
     border: 6px solid lightgray;
     display: flex;
-    flex-flow: row-reverse wrap;
+    flex-flow: row wrap-reverse;
 }
 
 .flex-item {

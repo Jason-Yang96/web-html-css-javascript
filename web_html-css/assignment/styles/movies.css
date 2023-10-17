@@ -1,0 +1,7 @@
+.recently-watched_movies-array{
+    display: flex;
+}
+.recently-watched_movie {
+    height: 50px;
+    width: 30px;
+}

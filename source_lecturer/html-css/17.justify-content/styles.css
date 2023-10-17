@@ -1,8 +1,10 @@
 .container {
     border: 6px solid lightgray;
     display: flex;
+    flex-flow: column wrap;
     /* justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;     */
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: flex-start;
 }
 
 .flex-item {

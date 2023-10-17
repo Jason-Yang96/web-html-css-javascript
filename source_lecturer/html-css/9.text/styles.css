@@ -1,5 +1,5 @@
 .a-text {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Noto Sans KR' , sans-serif; /*없으면 sans*/
     font-size: 40px;
     font-weight: 600;
 
@@ -8,7 +8,7 @@
     line-height: 36px;
 
     text-decoration: underline;
-    text-decoration: none;
+    /* text-decoration: none; */
 }
 
 .b-span-text {

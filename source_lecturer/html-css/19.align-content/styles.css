@@ -1,10 +1,10 @@
 .container {
     border: 6px solid lightgray;
     display: flex;
-    width: 500px;
-    height: 800px;
+    height: 400px;
     flex-wrap: wrap;
-    align-content: space-around;
+    /* aling-items:  */
+    align-content: space-evenly;
 }
 
 .flex-item {
