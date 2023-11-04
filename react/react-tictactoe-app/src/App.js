@@ -68,9 +68,7 @@ export default class App extends Component {
                 style = {this.btnStyle} 
                 onClick = {() => this.handleClick(data.id)}
               >
-                
                 x
-
               </button>  {/*wlrma map 안에서 돌아가고 있기 때문에 data.id로*/}
             </div>
           )
