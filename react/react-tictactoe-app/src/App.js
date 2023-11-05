@@ -1,98 +1,54 @@
 import './App.css';
-import React, {Component} from 'react';
+import React, {useState} from 'react'; //Component 클래스 불러오기 
+import Lists from './components/Lists';
 
 
-export default class App extends Component {
-  btnStyle = {
-  color: "#fff",
-  border: "none",
-  padding: "5px 9px",
-  borderRadius: "50%",
-  cursor: "pointer",
-  float: "right",
-  };
-  listStyle = (completed) => { //변수라고 생각되는데 실제 사용할 때는 메서드 처럼 하용된다. 
-    return {
-      padding: "10px",
-      borderBottom: "1px #ccc dotted",
-      textDecoration: completed? "line-through": "none"
-    };
-  };
-  state = {
-    todoDatas : [],
-    value : ""
-  }
-  handleClick = (id) => {
-    let newTodoDatas = this.state.todoDatas.filter((data) => data.id !== id);
-    console.log('newTodoData', newTodoDatas);
-    this.setState({todoDatas : newTodoDatas})
-  }
-  handleChange = (e) => {
-    this.setState({value: e.target.value})
-  }
-  handleSumit = (e) => {
+export default function App() { // 내보낼 클래스 정의하기
+  // state setting 해주는 부분
+  const [todoDatas, setTodoData] = useState([]);
+  const [value, setValue] = useState("");
+
+  const handleSumit = (e) => { //클릭하면 페이지를 리로드하지 않고 할 일을 Create해준다.
     e.preventDefault();
-
+    
     let newTodo = {
-      id: Date.now(),
-      title: this.state.value,
+      id: Date.now(), //id는 구분 가능할 수 있도록 시간 관련된 값을 부여해준다
+      title: value, 
       completed: false
     }
-
-    this.setState({todoDatas: [...this.state.todoDatas, newTodo], value: ""})
+    
+    setTodoData(prev => [...prev, newTodo]); //기존의 todoDatas에 새로운 요소를 추가한다. 새로운 추가 요소는 처음에 값을 가지지 않는다.;
   }
-  handleCompleteChange = (id) => {
-    let newTodoData = this.state.todoDatas.map((data) => {
-      if (data.id === id) {
-        data.completed = !data.completed;
-      }
-      return data;
-    });
-    this.setState({todoDatas: newTodoData})
-  };
-  render(){
-    return(
-      <div className='container'>
-        <div className='todoBlock'>
-          <div className='title'>
-            <h1>할 일 목록</h1>
-          </div>
-          {this.state.todoDatas.map((data) => (
-            <div style={this.listStyle(data.completed)} key={data.id}>
-              <input 
-                type='checkbox' 
-                onChange={() => this.handleCompleteChange(data.id)}  // return 의 맥락 속에서는 this를 사용해서 클래스의 메서드임을 명시해주어야 한다.
-                defaultChecked = {false}/>
-              {data.title}
-              <button 
-                style = {this.btnStyle} 
-                onClick = {() => this.handleClick(data.id)}
-              >
-                x
-              </button>  {/*wlrma map 안에서 돌아가고 있기 때문에 data.id로*/}
-            </div>
-          )
-          )}
-          <form style= {{display: 'flex'}} onSubmit={this.handleSumit}>
-            <input
-              type ='text'
-              name ='value'
-              style = {{flex: '10', padding: '5px'}}
-              placeholder = '해야 할 일을 입력하세요.'
-              value = {this.state.value}
-              onChange= {this.handleChange}
-            />
-            <input
-              type ='submit'
-              value = "입력"
-              className='btn'
-              style={{flex: '1'}}
-            />
-              
-          </form>
+  
+  const handleChange = (e) => { //할 일을 입력할 때 변화를 체크해서 반복적으로 값 상태를 Read하여 Update해준다.
+    setValue(e.target.value);
+  }
+  return(
+    <div className='container'>
+      <div className='todoBlock'>
+        <div className='title'>
+          <h1>할 일 목록</h1>
+        </div> {/* jsx 구문에서는 함부로 세미콜론 넣으면 안됨. 브라우저에 인식될 수 있음 */}
+        <Lists todoDatas = {todoDatas} setTodoData = {setTodoData}/>  {/* Lists 요소에 state를 속성으로 내려준다 */}
+        <form style= {{display: 'flex'}} onSubmit={handleSumit}>
+          <input
+            type ='text'
+            name ='value'
+            style = {{flex: '10', padding: '5px'}}
+            placeholder = '해야 할 일을 입력하세요.'
+            value = {value}
+            onChange= {handleChange}
+          />
+          <input
+            type ='submit'
+            value = "입력"
+            className='btn'
+            style={{flex: '1'}}
+          />
+        </form>
 
-        </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
+
