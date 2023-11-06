@@ -2,6 +2,7 @@ import React from 'react'
 
 export default function Form({value, setValue, handleSubmit}) {
     
+    console.log("Form");
     const handleChange = (e) => { //할 일을 입력할 때 변화를 체크해서 반복적으로 값 상태를 Read하여 Update해준다.
         setValue(e.target.value);
     }

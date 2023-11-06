@@ -1,9 +1,10 @@
 import React from 'react'
 
-const List = ({
-    id, title, completed, todoDatas, setTodoData, provided, snapshot
-    }) => {
-    const handleCompleteChange = (id) => { 
+const List = React.memo (({
+    id, title, completed, todoDatas, setTodoData, provided, snapshot, handleClick
+}) => {
+        console.log("List");
+        const handleCompleteChange = (id) => { 
         let newTodoDatas = todoDatas.map((data) => { 
             if (data.id === id) {
             data.completed = !completed;
@@ -12,11 +13,6 @@ const List = ({
         });
         setTodoData(newTodoDatas); 
     };
-    const handleClick = (id) => { 
-        let newTodoDatas = todoDatas.filter((data) => data.id !== id);
-        console.log('newTodoData', newTodoDatas);
-        setTodoData(newTodoDatas);
-    }
     return (
         <div 
             key = {id} 
@@ -40,7 +36,7 @@ const List = ({
                 <button onClick = {() => handleClick(id)}>X</button>  
             </div>
         </div>
-  )
-}
+  );
+}); 
 
 export default List
