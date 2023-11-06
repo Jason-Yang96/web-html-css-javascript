@@ -9,6 +9,10 @@ export default function App() {
   const [todoDatas, setTodoData] = useState([]);
   const [value, setValue] = useState("");
 
+  const handleRomoveClick = () => {
+    setTodoData([]);
+  }
+  
   const handleClick = useCallback((id) => { 
     let newTodoDatas = todoDatas.filter((data) => data.id !== id);
     console.log('newTodoData', newTodoDatas);
@@ -31,6 +35,7 @@ export default function App() {
       <div className='w-full p-6 m-4 bg-white rounded shadow md:w-3/4 md:max-w-lg lg:w-3/4 lg:max-w-lg'>
         <div className='flex justify-between mb-3'>
           <h1>할 일 목록</h1>
+          <button onClick={handleRomoveClick}>Delete All</button>
         </div> {/* jsx 구문에서는 함부로 세미콜론 넣으면 안됨. 브라우저에 인식될 수 있음 */}
         <Lists handleClick = {handleClick} todoDatas = {todoDatas} setTodoData = {setTodoData}/>  {/* Lists 요소에 state를 속성으로 내려준다 */}
         <Form value = {value} setValue = {setValue} handleSubmit = {handleSubmit}/>
