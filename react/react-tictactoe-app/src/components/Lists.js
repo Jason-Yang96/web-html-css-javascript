@@ -2,16 +2,17 @@ import React from 'react'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import List from './List';
 
-const Lists = React.memo(({todoDatas,setTodoData, handleClick}) => {
+const Lists = React.memo(({todoDatas,setTodoData, value, setValue}) => {
     console.log("Lists");
     const handleEnd = (result) => {
         console.log("result", result)
         if(!result.destination) return;
 
-        const newTodoData = todoDatas;
-        const [reorderedItem] = newTodoData.splice(result.source.index, 1);
-        newTodoData.splice(result.destination.index, 0, reorderedItem); //put zero at the second place when you intend to insert data in the array
-        setTodoData(newTodoData)
+        const newTodoDatas = todoDatas;
+        const [reorderedItem] = newTodoDatas.splice(result.source.index, 1);
+        newTodoDatas.splice(result.destination.index, 0, reorderedItem); //put zero at the second place when you intend to insert data in the array
+        setTodoData(newTodoDatas);
+        localStorage.setItem('todoDatas', JSON.stringify(newTodoDatas)) ;
     }
     return (
         <div>
@@ -35,7 +36,6 @@ const Lists = React.memo(({todoDatas,setTodoData, handleClick}) => {
                                         setTodoData = {setTodoData}
                                         provided = {provided}
                                         snapshot = {snapshot}
-                                        handleClick = {handleClick}
                                     />
                                 )}
                             </Draggable>
