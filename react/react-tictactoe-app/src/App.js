@@ -14,7 +14,7 @@ const App = () => { //App이 컴포넌트로 불러와져서 사용된다면? �
       setTodoData([]);
       localStorage.setItem('todoDatas', JSON.stringify([])) ;
     }
-
+    
     return(
       <div className='flex items-center justify-center w-screen h-screen bg-blue-100'>
         <div className='w-full p-6 m-4 bg-white rounded shadow md:w-3/4 md:max-w-lg lg:w-3/4 lg:max-w-lg'>

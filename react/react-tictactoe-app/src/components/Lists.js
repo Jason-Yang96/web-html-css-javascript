@@ -17,7 +17,7 @@ const Lists = React.memo(({todoDatas,setTodoData, value, setValue}) => {
     return (
         <div>
             <DragDropContext onDragEnd={handleEnd}>
-                <Droppable droppableId="todos"> 
+                <Droppable droppableId={"todos"}> 
                     {(provided) => (
                         <div {...provided.droppableProps} ref={provided.innerRef}>
                         {todoDatas.map((data, index) => (  
@@ -38,6 +38,7 @@ const Lists = React.memo(({todoDatas,setTodoData, value, setValue}) => {
                                         snapshot = {snapshot}
                                     />
                                 )}
+
                             </Draggable>
                         ))}
                         {provided.placeholder}

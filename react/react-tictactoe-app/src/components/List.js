@@ -80,7 +80,7 @@ const List = React.memo (({
                     {...provided.dragHandleProps} 
                     className={`${snapshot.isDragging ? 'bg-gray-400' : 'bg-gray-100'} 
                     flex my-3 justify-between items-center text-gray-600 bg-gray-100 border rounded`}>
-                <div className='flex items-center w-full px-4 py-1 my-2'>
+                <div className='flex items-center w-full px-4 py-1 my-2 hover:gh-gray-200'>
                     <input 
                         className='mr-5'
                         type='checkbox' 
